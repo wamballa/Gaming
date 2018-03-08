@@ -1,2 +1,0 @@
-# wamballa
-i love gaming
