@@ -1,28 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Phaser Template</title>
-	<link rel="stylesheet" href="styles/main.css">
 
-	<link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors Lizard Spock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="./js/loadAssets.js"></script>
 
-	<script>
-	if (navigator.serviceWorker) {
-	  navigator.serviceWorker.register('service-worker.js')
-	    .then(function(){
-	    	console.log('service worker installed');
-	    })
-	    .catch(function(err){
-	    	console.log('Error...', err);
-	    });
-	}
-	</script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/compare.js"></script>
+
+    <script type="text/javascript" src="./js/takeTurn.js"></script>
+    <script type="text/javascript" src="./js/autoTurn.js"></script>
+
+    <script type="text/javascript" src="./js/autoPilot.js"></script>
+    <script type="text/javascript" src="./js/randomChoice.js"></script>
+    <script type="text/javascript" src="./js/handlePlayerComputerChoices.js"></script>
+
 
 </head>
-<body>
-    <!-- <script src="cordova.js"></script>    -->
-	<script src="scripts/phaser.min.js"></script>
-	<script src="scripts/game.js"></script>
+
+<body onload="game.init()">
+
+  <h1><bold>rock paper scissors</bold></h1>
+
+  <div id="canvasContainer" style="text-align:center; margin-bottom: 5px; width: 100%;"></div>
+
+  <div id="theButtons" style="text-align:center;width:100%;">
+      <div id="rock" class="button" onmousedown='game.takeTurn("rock")'><img src='assets/rock_.png'><br />rock</div>
+      <div id="paper" class="button" onmousedown='game.takeTurn("paper")'><img src='assets/paper_.png'><br />paper</div>
+      <div id="scissors" class="button" onmousedown='game.takeTurn("scissors")'><img src='assets/scissors_.png'><br />scissors</div>
+      <div id="lizard" class="button" onmousedown='game.takeTurn("lizard")'><img src='assets/lizard.png'><br />lizard</div>
+      <div id="spock" class="button" onmousedown='game.takeTurn("spock")'><img src='assets/spock.png'><br />spock</div>
+      <div id="autoPilot" class="button" onmousedown='game.autoPilot()'><img src='assets/auto.png'><br />auto</div>
+      <div id="autoPilot" class="button" onmousedown='game.restart()'><img src='assets/restart.png'><br />restart</div>
+  </div>
+
 </body>
+
 </html>
