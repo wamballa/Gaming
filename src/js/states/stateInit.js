@@ -1,33 +1,37 @@
-var StateInit = {
-    preload: function() {
-        //
-        //This file sets up the preloader
-        //
-        //
-        //
-        game.load.image("loadingEmpty", "images/loading/progress_none.png");
-        game.load.image("loadingFull", "images/loading/progress_all.png");
-        if (isMobile == true) {
-            if (useLandscape == true) {
-                game.scale.forceOrientation(true, false);
-            } else {
-                game.scale.forceOrientation(false, true);
-            }
-            game.scale.enterIncorrectOrientation.add(this.wrongWay, this);
-            game.scale.leaveIncorrectOrientation.add(this.rightWay, this);
-        }
-    },
-    create: function() {
-        game.state.start("StateLoad");
-    },
-    update: function() {},
-    rightWay: function() {
-        if (model.state != "main") {
-            location.reload();
-        }
-        document.getElementById(wrongTag).style.display = "none";
-    },
-    wrongWay: function() {
-        document.getElementById(wrongTag).style.display = "block";
+export default class StateInit extends Phaser.State {
+
+  preload() {
+    //
+    //This file sets up the preloader
+    //
+    console.log('STATEINIT');
+    this.game.load.image('loadingEmpty', '../../images/loading/progress_none.png');
+    this.game.load.image('loadingFull', '../../images/loading/progress_all.png');
+    if (this.game.isMobile == true) {
+      if (this.game.useLandscape == true) {
+        this.game.scale.forceOrientation(true, false);
+      } else {
+        this.game.scale.forceOrientation(false, true);
+      }
+      this.game.scale.enterIncorrectOrientation.add(this.wrongWay, this);
+      this.game.scale.leaveIncorrectOrientation.add(this.rightWay, this);
     }
+  }
+
+  create() {
+    this.state.start('StateLoad');
+  }
+
+  update() {}
+
+  rightWay() {
+    if (this.game.model.state != 'main') {
+      location.reload();
+    }
+    document.getElementById(this.game.wrongTag).style.display = 'none';
+  }
+
+  wrongWay() {
+    document.getElementById(this.game.wrongTag).style.display = 'block';
+  }
 }

@@ -1,5 +1,6 @@
-class GameConstants {
+export default class GameConstants {
     constructor() {
+        console.log('GAME CONSTANTS');
         this.UP_SCORE = "upScore";
         this.SCORE_UPDATED = "scoreUpdated";
         this.SET_TIME = "setTime";

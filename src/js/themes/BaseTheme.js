@@ -1,5 +1,5 @@
-class BaseTheme extends Phaser.Group {
-    constructor() {
+export default class BaseTheme extends Phaser.Group {
+    constructor(game) {
         super(game);
         this.themeName = "default";
     }

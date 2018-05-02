@@ -1,34 +1,44 @@
-class BlueTheme extends BaseTheme {
-    constructor() {
-        super(game);
-        this.themeName = "blue";
-    }
-    loadTheme() {
-        this.loadMusicButtons();
-        game.load.image("defaultButton", "images/themes/blue/buttons/default.png");
-        //
-        //
-        //
-        model.defaultButtonTextColor = "#ffffff";
-        model.primaryTextColor = "#ffffff";
-        model.secondTextColor = "#000000";
-        model.timerBarColor = "#ff0000";
-        model.pointTextColor = "#ff0000";
-        model.clockColor = "#219ADDFF";
-        model.scoreColor = "#219ADDFF";
-        model.progBarColor = "#1CF707";
-        model.timerBarColor = "#ff0000";
-        model.levelColor = "#ffffff";
-        model.toastTextColor = 0xffffff;
-        model.toastBarColor = 0xff0000;
-        model.mainFont = "Flamenco";
-        //
-        //
-        //
-        model.titleFontSize = game.width / 24;
-        model.buttonFontSize = game.width / 16;
-        model.defaultFontSize = game.width / 30;
-        model.scoreFontSize = game.width / 40;
-        model.clockFontSize = game.width / 40;
-    }
+import BaseTheme from "./BaseTheme";
+
+export default class BlueTheme {
+  constructor(game) {
+    // super(game);
+    this.game = game;
+    this.themeName = "blue";
+  }
+  loadTheme() {
+    this.loadMusicButtons();
+    this.game.load.image("defaultButton", "images/themes/blue/buttons/default.png");
+    //
+    //
+    //
+    this.game.model.defaultButtonTextColor = "#ffffff";
+    this.game.model.primaryTextColor = "#ffffff";
+    this.game.model.secondTextColor = "#000000";
+    this.game.model.timerBarColor = "#ff0000";
+    this.game.model.pointTextColor = "#ff0000";
+    this.game.model.clockColor = "#219ADDFF";
+    this.game.model.scoreColor = "#219ADDFF";
+    this.game.model.progBarColor = "#1CF707";
+    this.game.model.timerBarColor = "#ff0000";
+    this.game.model.levelColor = "#ffffff";
+    this.game.model.toastTextColor = 0xffffff;
+    this.game.model.toastBarColor = 0xff0000;
+    this.game.model.mainFont = "Flamenco";
+    //
+    //
+    //
+    this.game.model.titleFontSize = this.game.width / 24;
+    this.game.model.buttonFontSize = this.game.width / 16;
+    this.game.model.defaultFontSize = this.game.width / 30;
+    this.game.model.scoreFontSize = this.game.width / 40;
+    this.game.model.clockFontSize = this.game.width / 40;
+  }
+  loadMusicButtons() {
+    let path = "images/themes/" + this.themeName + "/soundButtons/";
+    this.game.load.image("musicOn", path + "musicOn.png");
+    this.game.load.image("musicOff", path + "musicOff.png");
+    this.game.load.image("soundOff", path + "soundOff.png");
+    this.game.load.image("soundOn", path + "soundOn.png");
+  }
 }

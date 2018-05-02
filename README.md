@@ -1,80 +1,99 @@
-# BT frontend developer test
+This template is a modified version of this repository: https://github.com/belohlavek/phaser-es6-boilerplate
 
-## User Story
+It has been modified to include the following states:
 
-Create a browser based side scroller jumping game.
+* Boot
+* Preload
+* GameTitle
+* Main
+* GameOver
 
-A character will scroll infinitely through a 2D world, coming against obstacles in their path.
-A user will be able to make the character avoid the obstacles via jumping.
-If a character crashes into an obstacle it is game over!
+and is set up to auto resize to cover the entire available viewport. It also includes a service worker and manifest file for progressive web app support.
 
-## Before starting
+Original documentation below:
 
-- Repo name: **bt-playground**
+# Phaser ES6 Boilerplate
 
-- Branch name: **[yourname]/[testname]** eg john/side-scroller
+This is a non-professional Phaser template for building standard games using the 
+Phaser framework and ES6/2015.
 
-Make sure to checkout this branch, and make commits during your work.
+The original idea was to create a small project that contained a robust gulpfile, 
+a basic example and *some* kind of folder structure.
 
-## Dashboard view
+Codepen example: http://codepen.io/belohlavek/full/aORJVL
 
-To make you game works on dashboard please go to:
+## Features
 
-- `build-tools/webpack-config/webpack.aws-vars.js`
+✔ Heavily commented, flexible Gulpfile (that means it uses [Gulp](http://gulpjs.com/)).
 
-Modify `publicPath: '/[branch-name]-side-scroller/'` by replacing [branch-name] with your branch name eg
+✔ [Browserify](https://github.com/substack/node-browserify) + [Babelify](https://github.com/babel/babelify) (Yes, it uses [Babel](https://babeljs.io/)).
 
-`publicPath: '/radek-side-scroller/'`
+✔ [Browsersync](http://www.browsersync.io/) = Livereload + Mobile debugging with [Weinre](http://people.apache.org/~pmuellr/weinre-docs/latest/).
 
-## Acceptance Criteria
+✔ Example: Extending Phaser & modular development.
 
-- Your game should have a clear start and finish
-- When running the screen should scroll automatically
-- Obstacles should be auto generated
-- Users should be able to input to allow the character to jump over obstacles
-- Score should be recorded 
-- Extra: Difficulty can be chosen
-- Extra: Gets more tricky as time goes on
+✔ Production ([UglifyJS](https://github.com/mishoo/UglifyJS2)) and Development ([Sourcemaps](https://developer.chrome.com/devtools/docs/javascript-debugging#source-maps)) builds.
 
-## Guidelines
+✔ Did I say ES6? Well.. some ES7 too! ([See Experimental features](https://babeljs.io/docs/usage/experimental/)).
 
-- The UI can be as simple or as complex as you wish
-- We are keen to see how much you think is enough, and how much would go into a Minimum Viable Product.  As a guide, elegant and simple wins over feature rich every time, though extra gold stars are given to people who get excited and do more because they are having fun
-- We also consider the extensibility of the code produced.  Well factored code should be relatively easily extended
+## Why?
 
-## Technical Requirements
+ES6 [is the future](http://www.ecma-international.org/publications/standards/Ecma-262.htm)!
 
-- We prefer to use vanilla Javascript and the latest EcmaScript (ES6+) features
-- Using libs/frameworks is not forbidden, but we want to see your code, not someone else's. Exception is MOBX, you can feel free to use it.
-- You can style your game assets using SASS or pure CSS
-- The solution should work in IE10+ and all modern browsers
-- The solution should have unit tests for at least critical functions
-- Top mobile devices should be supported
-- Make sure that your solution have optimized `/build` with workable solution.
+Anyways, I've been using ES6 for a while in other personal projects, and I currently prefer it over ES5 and Typescript. 
+I found the new Class-based syntax to be a better fit for my developer needs. Unfortunately, the best way to access
+all the features of the new standard is by using a transpiler. This boilerplate is an attempt to reduce the time spent 
+configurating a project and installing dependencies by providing a template that can work as an scaffold for any Phaser game.
 
-## How to start coding
+## Usage
 
-Alongside this document you should find a prepared project with a few example
-files that help you to get started. Feel free to change the structure or add new
-files as you see fit.
+You need [Node.js and npm](https://nodejs.org/). You should also have git installed, but it's not mandatory.
 
-For unit tests, create a file inside src/ named as: `*.spec.js`
+Clone the repository (or download the ZIP file)
 
-`npm install` - to install
+`git clone https://github.com/belohlavek/phaser-es6-boilerplate.git`
 
-`npm start` - to start dev server
+Install dependencies
 
-`npm run start:tests:watch` - to run tests
+`npm install`
 
-`npm run build` - you will have to create this one :)
+Run a development build...
 
+`npm start`
 
-### Tooling
+...or a production build.
 
-The tooling we provide is the following:
+`npm run production`
 
-- `webpack` to modularise your Javascript code
-- `babel` to utilise ES6+ and Stage-3 features
-- `node-sass` to modularise your styling via SASS
-- `eslint` to make sure your code meets the standards
-- `jest`, `sinon` and `chai` to help you write and run your unit tests.
+Development builds will copy `phaser.min.js` together with `phaser.map` and `phaser.js`
+Your ES6 code will be transpiled into ES5 and concatenated into a single file.
+A sourcemap for your code will also be included (by default `game.map.js`).
+
+Production builds will only copy `phaser.min.js`. Your ES6 code will be transpiled and
+minified using UglifyJS.
+
+Any modification to the files inside the `./src` and `./static` folder will trigger a full page reload.
+
+If you modify the contents of other files, please manually restart the server.
+
+### Modifying `gulpfile.js`
+
+See [gulpfile.md](https://github.com/belohlavek/phaser-es6-boilerplate/blob/master/gulpfile.md)
+
+## Changelog (1.0.2)
+
+* Faster builds (no need to copy static files every time).
+* Live reload now works with static files too!
+
+## Contributing
+
+Please report any bugs or add requests on [Github Issues](https://github.com/belohlavek/phaser-es6-boilerplate/issues).
+
+## About me
+
+My name is Daniel Belohlavek: I'm from Buenos Aires, Argentina and I love to derp around and code
+silly snippets. You can follow me on Twitter [@dbhvk](http://twitter.com/dbhvk)
+
+## License
+
+This project is released under the MIT License.

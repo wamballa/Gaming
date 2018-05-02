@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="user-scalable=0, initial-scale=1,minimum-scale=1, maximum-scale=1, width=device-width, minimal-ui=1" name="viewport">
+    </meta>
+    </meta>
+    <!-- <link href="css/style.css" rel="stylesheet" type="text/css" /> -->
+</head>
+
+</html>
+<title>
+    Game Title Here.............
+</title>
+<script>
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('service-worker.js')
+            .then(function () {
+                console.log('service worker installed');
+            })
+            .catch(function (err) {
+                console.log('Error...', err);
+            });
+    }
+</script>
+<!-- <script src="js/lib/phaser.min.js">
+</script> -->
+<script src="scripts/phaser.min.js"></script>
+<script src="scripts/game.js"></script>
+
+<body>
+    <div id="wrongWayLandscape">
+    </div>
+    <div id="wrongWayPortrait">
+    </div>
+    <div id="ph_game">
+    </div>
+</body>
