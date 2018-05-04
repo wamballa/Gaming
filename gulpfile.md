@@ -37,7 +37,7 @@ Default: `./static`
 
 **`ENTRY_FILE`** the main source file, by convention named `index.js`. 
 
-Default: `SOURCE_PATH + '/main.js'`
+Default: `SOURCE_PATH + '/index.js'`
 
 ***
 
